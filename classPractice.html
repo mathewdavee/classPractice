@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>Welcome to the Book Library!</p>
+    <p>Here you can find information about various books.</p>
+    <p>Enjoy your reading!</p>
+    <p>Available book</p>
+    <p id="greetings" style="color: green;"></p>
+    <button id="borrowButton" style="color: red;">Borrow Book</button>
+<script>
+ class Book {
+    constructor( title, author, yearPublished, isAvailable = true) {
+        this.title = title;
+        this.author = author;
+        this.yearPublished = yearPublished;
+        this.isAvailable = isAvailable;
+    }
+
+   getBookInfo (){
+        if (this.isAvailable){
+            return `${this.title} by ${this.author} was published in ${this.yearPublished} and is currently available for borrowing.`;
+        } else {
+        return `${this.title} by ${this.author} is currently not available.`;
+         }
+    }
+
+    borrow() {
+        if (this.isAvailable) {
+            this.isAvailable = false;
+            return `${this.title} has been borrowed.`;
+        } else {
+            return `${this.title} is not available for borrowing.`;
+        }
+    }
+} 
+const book = new Book ("Pride and Prejudice", "Jane Austen", 1839);
+console.log(book.getBookInfo());
+document.getElementById("greetings").innerHTML = book.getBookInfo();
+document.getElementById("borrowButton").addEventListener("click", function() {
+    alert(book.borrow());
+    this.disabled = true;
+    document.getElementById("greetings").innerHTML = book.getBookInfo();
+});
+</script>
+</body>
+</html>
