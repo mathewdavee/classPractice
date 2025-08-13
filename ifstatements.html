@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifstatemtns</title>
+</head>
+<body>
+    <h1>Allowed to drive check</h1>
+    <label>Enter your age:</label>
+    <input type="text" id="myText">
+    <button id="mySubmit">submit</button>
+    <p id="ageResult"></p>
+    <script>
+        
+        document.getElementById("mySubmit").addEventListener("click", (event) => {
+            event.preventDefault();
+
+            const age = Number(document.getElementById("myText").value);
+            const ageResult = document.getElementById("ageResult");
+            const hasLicense = false;
+
+            if (isNaN(age)|| age <= 0) {
+                ageResult.textContent = "Please Enter a number/age";
+            }
+            else if (age >= 18 && hasLicense){
+                ageResult.textContent = "You are allowed to drive and you license is available";
+            }
+            else if(age >= 18 && !hasLicense){
+                ageResult.textContent = "You meet the age requirement, but you need to have license";
+            } 
+            else if (age >= 13 && age <= 18 && !hasLicense){
+                ageResult.textContent = "You are too young to drive and you need to be 18+ to have a license"
+            }
+            else {
+                ageResult.textContent = "You are not allowed to drive";
+            };
+
+            
+        });
+
+    </script>
+</body>
+</html>

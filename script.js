@@ -41,6 +41,7 @@ document.getElementById("demo").innerHTML = student.displayStudentInfo(); // dis
 
 // drop course button functionality
 document.getElementById("dropBtn").addEventListener("click", function(){
+    alert("Dropping course...");
     const message = student.dropCourse();
     document.getElementById("demo").innerHTML = message;
 })
