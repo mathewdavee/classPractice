@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phone number</title>
+  </head>
+
+  <body>
+    <h1>Enter your phone number</h1>
+    <label>number:</label>
+    <input type="text" id="myNumber" /> <br />
+    <br />
+    <p>Choose Network</p>
+    <input type="radio" id="globeBtn" />
+    <label for="globeBtn">Globe</label><br />
+    <input type="radio" id="ditoBtn" />
+    <label for="ditoBtn">Dito</label><br />
+    <br />
+
+    <button type="submit" id="mySubmit">submit</button>
+
+    <p id="numberRes"></p>
+    <p id="networkRes"></p>
+
+    <script>
+      document.getElementById("mySubmit").addEventListener("click", (event) => {
+        event.preventDefault();
+
+        // const myNumberInput = document.getElementById("myNumber");
+        const myNumber = Number(document.getElementById("myNumber").value);
+        const globeBtn = document.getElementById("globeBtn");
+        const ditoBtn = document.getElementById("ditoBtn");
+
+        const numberRes = document.getElementById("numberRes");
+        const networkRes = document.getElementById("networkRes");
+
+        //for number display
+        if (isNaN(myNumber) || myNumber <= 0) {
+          numberRes.textContent = "Please enter a valid number";
+        } else {
+          numberRes.textContent = `Your number is ${myNumber}`;
+        }
+
+        if (document.getElementById("myNumber").value.trim() === "") {
+          alert("Please enter a number");
+          return; // Stop here if empty
+        }
+
+        // network display
+        if (globeBtn.checked) {
+          networkRes.textContent = `Your network is Globe`;
+        } else if (ditoBtn.checked) {
+          networkRes.textContent = `Your network is Dito`;
+        } else {
+          networkRes.textContent = `Please choose a network`;
+        }
+      });
+
+      //radio change
+      const radio = document
+        .querySelectorAll("input[type='radio']")
+        .forEach((radio) => {
+          radio.addEventListener("mousedown", function (e) {
+            if (this.checked) {
+              this.wasChecked = true;
+            } else {
+              this.wasChecked = false;
+            }
+          });
+
+          radio.addEventListener("click", function (e) {
+            if (this.wasChecked) {
+              this.checked = false;
+            }
+          });
+        });
+    </script>
+  </body>
+</html>
