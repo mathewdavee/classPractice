@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: hsl(0, 30%, 42%);
+        }
+
+        h1{
+            color: white;
+        }
+        
+        form{
+            text-align:center;
+            background-color: rgb(161, 56, 56);
+            max-width: 350px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 5px 5px 10px;
+        }
+        #textBox{
+            width: 100%;
+            text-align: center;
+            font-size: 1em;
+            border: 1px hsla(0, 0%, 0%, 0.158);         
+        }
+        label{
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+        }
+        button{
+            margin-top: 10px;
+            background-color: rgb(148, 143, 143);
+            padding: 10px 15px;
+            border: none;
+            font-size: 1.5em;
+            border-radius: 10px;
+            cursor: pointer;
+            color: azure;
+        }
+        #result{
+            font-size:  1.5em;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h1>Temperature conversion:
+            <input type="number" value="0" id="textBox">
+        </h1>
+
+        <input type="radio"  id="toFarenheit" name="unit">
+        <label for="toFarenheit">Celsius ➡ Fahrenheit</label> <br><br>
+        <input type="radio"  id="toCelsius" name="unit">
+        <label for="toFarenheit">Farenheit ➡ Celsius</label> <br><br>
+        <button type="button" onclick="convert()">submit</button>
+        <button>reset</button>
+        <p id="result"></p>
+    </form>
+    <script src="temp.js"></script>
+</body>
+</html>

@@ -6,7 +6,7 @@ const payPalBtn = document.getElementById("payPalBtn");
 const mySubmit = document.getElementById("mySubmit");
 const subResult = document.getElementById("subResult");
 const paymentResult = document.getElementById("paymentResult");
-
+//for radio 
 const radio = document.querySelectorAll("input[type='radio']").forEach((radio)=> {
     radio.addEventListener ("mousedown", function (e) {
 
